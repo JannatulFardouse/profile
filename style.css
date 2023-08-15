@@ -51,6 +51,7 @@ header {
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 1px;
+    animation: topToBottom 1s ease forwards;
 }
 
 span {
@@ -65,7 +66,9 @@ span {
     font-size: var(--p-font);
     color: var(--text-color);
     font-weight: 500;
-    padding: 10px 50px;
+    padding: 10px 27px;
+    animation: slideAnimate 1s ease forwards;
+    animation-delay: calc(.2s * var(--a));
 }
 
 .navlist a:hover {
@@ -111,6 +114,10 @@ section {
     font-size: var(--normal-font);
     font-weight: 700;
     color: var(--hover-color);
+
+    position: relative;
+    text-shadow: var(--font-neon-text-shadow);
+    animation: neon-animation 1.5s ease-in-out infinite alternate;
 }
 
 .home-content p {
@@ -223,6 +230,7 @@ section {
     width: 100%;
     max-width: 350px;
     height: auto;
+    animation: topToBottom ease 3s forwards;
 }
 
 .liquid-shape {
@@ -241,5 +249,41 @@ section {
 @keyframes showTop {
     100% {
         width: 0;
+    }
+}
+
+@keyframes neon-animation {
+    from {
+        opacity: 1.0;
+        text-shadow: var(--font-neon-text-shadow);
+    }
+
+    to {
+        opacity: 1.0;
+        text-shadow: none;
+    }
+}
+
+@keyframes topToBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideAnimate {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
