@@ -31,6 +31,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    overflow: hidden;
 }
 
 header {
@@ -63,10 +64,12 @@ span {
 }
 
 .navlist a {
+    display: inline;
     font-size: var(--p-font);
     color: var(--text-color);
     font-weight: 500;
     padding: 10px 27px;
+    opacity: 0;
     animation: slideAnimate 1s ease forwards;
     animation-delay: calc(.2s * var(--a));
 }
@@ -108,6 +111,7 @@ section {
 .home-content h1 {
     font-size: var(--big-font);
     font-weight: 700;
+    animation: leftToRight 1.5s ease forwards;
 }
 
 .home-content h3 {
@@ -117,7 +121,7 @@ section {
 
     position: relative;
     text-shadow: var(--font-neon-text-shadow);
-    animation: neon-animation 1.5s ease-in-out infinite alternate;
+    animation: neon-animation 1.5s ease-in-out infinite alternate, rightToLeft 1.5s ease forwards;
 }
 
 .home-content p {
@@ -145,6 +149,14 @@ section {
     align-items: center;
     width: 610px;
     margin: 1rem 0 2rem;
+}
+
+.info-box .email-info {
+    animation: leftToRight 2s ease forwards;
+}
+
+.info-box .linkdln-info {
+    animation: rightToLeft 2s ease forwards;
 }
 
 .info-box h5 {
@@ -208,6 +220,8 @@ section {
 .btn-box a:nth-child(1) {
     background: var(--hover-color);
     color: var(--bg-color);
+
+    animation: leftToRight 4s ease forwards;
 }
 
 .btn-box a:nth-child(1)::before {
@@ -216,6 +230,11 @@ section {
 
 .btn-box a:nth-child(1):hover {
     color: var(--hover-color);
+}
+
+.btn-box a:nth-child(2) {
+
+    animation: rightToLeft 4s ease forwards;
 }
 
 .home-image {
@@ -239,6 +258,7 @@ section {
     height: 100%;
     z-index: -1;
     top: 10%;
+    animation: bottomToTop ease 3s forwards;
 }
 
 .liquid-shape:nth-child(2) {
@@ -280,6 +300,42 @@ section {
     0% {
         opacity: 0;
         transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes leftToRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightToLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
     }
 
     100% {
